@@ -7,7 +7,7 @@ if ! command -v busybox >/dev/null 2>&1; then
     exit 1
 fi
 
-busybox=$(command -v busybox)
+busybox=/system/bin/busybox
 sdkVer="$(getprop ro.system.build.version.sdk)"
 
 export bin=/system/bin
@@ -24,6 +24,14 @@ elif [ -d "/data/debian" ]; then
    export mnt=/data/debian
 elif [ -d "/data/ubuntu" ]; then
    export mnt=/data/ubuntu
+elif [ -d "/data/ubuntu22" ]; then
+   export mnt=/data/ubuntu22
+elif [ -d "/data/ubuntu20" ]; then
+   export mnt=/data/ubuntu20
+elif [ -d "/data/ubuntu18" ]; then
+   export mnt=/data/ubuntu18
+elif [ -d "/data/ubuntu16" ]; then
+   export mnt=/data/ubuntu16  
 elif [ -d "/data/kali" ]; then
     export mnt=/data/kali
 elif [ -d "/data/fedora" ]; then
@@ -67,6 +75,7 @@ echo "Shutting down SSH Server"
 $busybox chmod 666 /dev/null
 
 $busybox chroot $mnt /etc/init.d/sshd stop
+$busybox chroot $mnt /etc/init.d/ssh stop
 
 echo "Shutting down Postgresql"
 $busybox chroot $mnt /etc/init.d/postgresql stop
