@@ -1,12 +1,5 @@
 #!/system/bin/sh
 
-# if busybox is not found, exit
-if ! command -v busybox >/dev/null 2>&1; then
-    echo "Busybox not found!  Install it, dummy!"
-    log "Busybox not found!  Install it, dummy!"
-    exit 1
-fi
-
 busybox=/system/bin/busybox
 sdkVer="$(getprop ro.system.build.version.sdk)"
 
