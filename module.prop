@@ -3,4 +3,4 @@ name=Linux Chroot Installer
 version=v2.2.0
 versionCode=1
 author=FerryAr
-description=Systemless linux chroot installer and chroot boot script
+description=Systemless linux chroot installer and chroot boot script && Ubuntu 18.04-22.04内核编译一体chroot环境，开箱即用。账号和密码都为:root 连接方式:ssh root@localhost -p xxxx (xxxx取值分别为: 6618 ,6620 ,6622)
