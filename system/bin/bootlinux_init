@@ -7,7 +7,7 @@ if ! command -v busybox >/dev/null 2>&1; then
     exit 1
 fi
 
-busybox=$(command -v busybox)
+busybox=/system/bin/busybox
 
 ######### CHECK FOR ROOT #########
 f_checkforroot(){
@@ -33,6 +33,14 @@ elif [ -d "/data/debian" ]; then
     mnt=/data/debian
 elif [ -d "/data/ubuntu" ]; then
     mnt=/data/ubuntu
+elif [ -d "/data/ubuntu22" ]; then
+    mnt=/data/ubuntu22
+elif [ -d "/data/ubuntu20" ]; then
+    mnt=/data/ubuntu20
+elif [ -d "/data/ubuntu18" ]; then
+    mnt=/data/ubuntu18     
+elif [ -d "/data/ubuntu16" ]; then
+    mnt=/data/ubuntu16            
 elif [ -d "/data/arch" ]; then
     mnt=/data/arch
 elif [ -d "/data/kali" ]; then
@@ -278,9 +286,9 @@ mount_linux_chroot() {
 
     # NETWORK SETTINGS #
     $busybox sysctl -w net.ipv4.ip_forward=1
-    echo "127.0.0.1		 localhost linux" > $mnt/etc/hosts
+    echo "127.0.0.1		 localhost" > $mnt/etc/hosts
     echo "::1				 localhost ip6-localhost ip6-loopback" >> $mnt/etc/hosts
-    echo "linux" > $mnt/proc/sys/kernel/hostname
+    #echo "linux" > $mnt/proc/sys/kernel/hostname
     echo "The Linux chroot has been started."
     if [ -f /sdcard/debug ]; then
         echo " [!] Everytime you mount the linux chroot, please press ENTER to continue. (If chroot is already mounted, this won't prompt.)"
