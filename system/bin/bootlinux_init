@@ -281,7 +281,7 @@ mount_linux_chroot() {
     $busybox sysctl -w net.ipv4.ip_forward=1
     echo "127.0.0.1		 localhost" > $mnt/etc/hosts
     echo "::1				 localhost ip6-localhost ip6-loopback" >> $mnt/etc/hosts
-    #echo "linux" > $mnt/proc/sys/kernel/hostname
+    echo "linux" > $mnt/proc/sys/kernel/hostname
     echo "The Linux chroot has been started."
     if [ -f /sdcard/debug ]; then
         echo " [!] Everytime you mount the linux chroot, please press ENTER to continue. (If chroot is already mounted, this won't prompt.)"
