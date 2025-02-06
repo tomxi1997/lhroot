@@ -10,9 +10,9 @@ done
 
 export PATH=$PATH:/system/xbin:/system/bin
 
-/system/bin/bootlinux /data/ubuntu22 
-sleep 1
-/system/bin/bootlinux /data/ubuntu20
-sleep 1
-/system/bin/bootlinux /data/ubuntu18
+#/system/bin/bootlinux /data/ubuntu22 
+#sleep 1
+#/system/bin/bootlinux /data/ubuntu20
+#sleep 1
+#/system/bin/bootlinux /data/ubuntu18
 
