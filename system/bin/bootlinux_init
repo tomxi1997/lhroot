@@ -171,8 +171,10 @@ mount_linux_chroot() {
     touch $mnt/etc/resolv.conf
 
     # add two public dns entries
+    echo "nameserver 8.8.8.8" >> $mnt/etc/resolv.conf
     echo "nameserver 1.1.1.1" >> $mnt/etc/resolv.conf
     echo "nameserver 1.0.0.1" >> $mnt/etc/resolv.conf
+
     chmod 644 $mnt/etc/resolv.conf
 
     ######### MOUNTING FILESYSTEM IN CHROOT #########
